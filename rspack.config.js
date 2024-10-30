@@ -1,14 +1,28 @@
 
 /**
- * @type {import('webpack').Configuration}
+ * @type {import('@rspack/core').Configuration}
  */
 module.exports = {
+    output: {
+      path: 'dist/rspack',
+      library: {
+        type: 'module'
+      }
+    },
+
+    experiments: {
+      outputModule: true,
+    },
     mode: 'production',
     context: __dirname,
     resolve: {
       extensions: ['.ts','...']
     },
-    entry:['./cases/export-type/index.ts'],
+    
+    entry:{
+      'export-type': './cases/export-type/index.ts',
+      'const-enum':'./cases/const-enum/index.ts'
+    },
     optimization: {
       moduleIds:'named',
       minimize:false,
@@ -16,7 +30,7 @@ module.exports = {
     module: {
       parser: {
         javascript: {
-          'exportsPresence': 'error'
+          'exportsPresence': 'warning'
         }
       },
       rules: [
