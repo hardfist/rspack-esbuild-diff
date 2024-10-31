@@ -9,7 +9,6 @@ module.exports = {
         type: 'module'
       }
     },
-
     experiments: {
       outputModule: true,
     },
@@ -21,7 +20,8 @@ module.exports = {
     
     entry:{
       'export-type': './cases/export-type/index.ts',
-      'const-enum':'./cases/const-enum/index.ts'
+      'const-enum':'./cases/const-enum/index.ts',
+      'side-effect': './cases/side-effects/index.ts'
     },
     optimization: {
       moduleIds:'named',
