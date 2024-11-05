@@ -21,7 +21,8 @@ module.exports = {
     entry:{
       'export-type': './cases/export-type/index.ts',
       'const-enum':'./cases/const-enum/index.ts',
-      'side-effect': './cases/side-effects/index.ts'
+      'side-effect': './cases/side-effects/index.ts',
+      'tdz': './cases/tdz/index.ts'
     },
     optimization: {
       moduleIds:'named',
@@ -39,6 +40,7 @@ module.exports = {
           loader: 'builtin:swc-loader',
           options: {
             jsc: {
+              target: 'esnext',
               parser: {
                 syntax: 'typescript',
               },
